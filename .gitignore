@@ -1,0 +1,13 @@
+.env*
+*.pem
+*.key
+*credentials*
+client_secret*.json
+*token*.json
+.mcp.json
+*.mcp.json
+.mcp.local.json
+harness-reviews/
+__pycache__/
+.pytest_cache/
+.venv/
