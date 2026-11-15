@@ -1,6 +1,6 @@
 ---
 name: harness-review
-description: Review door for the setup around the model — for when the user wants to know what, in a process, routine, skill or project, the AI, a person or code does today that should be done another way, measured, with what each change saves and what it loses. Walks the written method (METHOD.md) step by step on the target the user names, takes every run number from the bundled transcript reader, says plainly what it cannot measure, writes one report, and never builds or changes anything; each item becomes a task or a plan only on the user's yes. Use when the user says "review <process/routine/skill/project> for what should be code", "what here should be code", "where is the AI doing code's work", "should this be code?", or in Portuguese "revisa <processo/rotina/skill/projeto>", "o que aqui devia ser código", "isso devia ser código?", "onde a IA tá fazendo trabalho de código". NOT for a UI review, a code diff review, or a plan stress-test.
+description: Review door for the setup around the model — for when the user wants to know what, in a process (a company's included), routine, skill or project, the AI, a person or code does today that should be done another way, measured, with what each change saves and what it loses. Walks the written method (METHOD.md) step by step on the target the user names, takes every run number from the bundled transcript reader, says plainly what it cannot measure, writes one report, and never builds or changes anything; each item becomes a task or a plan only on the user's yes. Use when the user says "review <process/routine/skill/project> for what should be code", "what here should be code", "where is the AI doing code's work", "should this be code?", or in Portuguese "revisa <processo/rotina/skill/projeto>", "o que aqui devia ser código", "isso devia ser código?", "onde a IA tá fazendo trabalho de código", "o que aqui a IA faz que não precisava". NOT for a UI review, a code diff review, or a plan stress-test.
 ---
 
 # harness-review — walk the method, measure with the reader, report, build nothing
@@ -18,7 +18,7 @@ The reader's flags and answer keys are in Portuguese; `${CLAUDE_SKILL_DIR}/reade
 If the environment variable `HARNESS_REVIEW_LOCAL` is set, read it with `echo "$HARNESS_REVIEW_LOCAL"`.
 
 - It names a readable file → read that file whole before anything else.
-  Its rules override the defaults of this skill for: the report folder, how a target is resolved, extra boundaries, extra opener shapes, the language, and the hand-off doors on a yes.
+  Its rules override the defaults of this skill for: the report folder, how a target is resolved, extra boundaries, extra opener shapes, the language, the timezone passed as `--fuso`, where the method's history and earlier reviews live, and the hand-off doors on a yes.
   Everything else here still holds, and nothing in it can switch off section 1.
 - It is set but the file is missing or unreadable → say so to the user in one line, then go on with the defaults.
 - It is not set → use the defaults, without comment.
