@@ -45,7 +45,10 @@ Guarantees (each has a test):
 2. An unreadable line is counted per file in ``linhas_ilegiveis`` and sets ``formato_mudou``;
    the rest of the file is still read. An unreadable LAST line with no trailing newline is a
    line still being written (any file, the measuring session's own above all): it is counted
-   per file in ``linhas_em_escrita`` and does not set ``formato_mudou``.
+   per file in ``linhas_em_escrita`` and does not set ``formato_mudou``. A ``timestamp`` text
+   that does not read as a time (on any Python: a trailing ``Z`` is read on every supported
+   version) sets ``formato_mudou`` with an ``avisos`` line naming the file, even in a file
+   with no entry in the window, so a reading can never come back empty in silence.
 3. A ``uuid`` already seen (in this or an earlier file) is skipped and counted.
 4. A file is read whole when any entry of it is inside the window; a file with no entry in the
    window contributes nothing (not even to the dedupe). Files last modified before ``de`` are
@@ -271,6 +274,8 @@ def hora_local(dt: datetime) -> str:
 def _ts(valor: Any) -> datetime | None:
     if not isinstance(valor, str):
         return None
+    if valor.endswith("Z"):  # fromisoformat takes a trailing "Z" only from Python 3.11
+        valor = valor[:-1] + "+00:00"
     try:
         dt = datetime.fromisoformat(valor)
     except ValueError:
@@ -424,7 +429,7 @@ def _le_arquivo(c: _Candidato, g: _Global, de: datetime, ate: datetime,
     resultados: dict[str, tuple[str, bool, Any]] = {}
     eventos: list[Chamada | Abertura] = []
     tipos: Counter[str] = Counter()
-    linhas = ilegiveis = em_escrita = duplicadas = sem_chave = 0
+    linhas = ilegiveis = em_escrita = duplicadas = sem_chave = horas_ilegiveis = 0
     na_janela = tem_assistente = tem_uso = False
     primeiro: datetime | None = None
     ultimo: datetime | None = None
@@ -447,6 +452,8 @@ def _le_arquivo(c: _Candidato, g: _Global, de: datetime, ate: datetime,
                 ilegiveis += 1
                 continue
             ts = _ts(e.get("timestamp"))
+            if ts is None and isinstance(e.get("timestamp"), str):
+                horas_ilegiveis += 1
             if corte is not None and ts is not None and ts >= corte:
                 continue
             uid = e.get("uuid")
@@ -505,6 +512,9 @@ def _le_arquivo(c: _Candidato, g: _Global, de: datetime, ate: datetime,
                 if ab is not None:
                     eventos.append(ab)
 
+    if horas_ilegiveis:  # reported even when the file is out of the window: it may not be
+        g.formato_mudou = True
+        g.avisos.append(f"{horas_ilegiveis} hora(s) ilegível(is) em {c.nome}.")
     if not na_janela:
         return None
     # commit

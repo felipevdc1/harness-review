@@ -583,6 +583,32 @@ def test_ids_fixos_escrevem_os_mesmos_bytes(tmp_path):
     assert tres != um  # outside it the uuids are random again
 
 
+@pytest.mark.parametrize("texto,esperado", [
+    ("2026-11-10T13:01:00.000Z", datetime(2026, 11, 10, 13, 1, tzinfo=timezone.utc)),
+    ("2026-11-10T13:01:00Z", datetime(2026, 11, 10, 13, 1, tzinfo=timezone.utc)),
+    ("2026-11-10T13:01:00.000+00:00", datetime(2026, 11, 10, 13, 1, tzinfo=timezone.utc)),
+    ("2026-11-10T13:01:00", datetime(2026, 11, 10, 13, 1, tzinfo=timezone.utc)),
+    ("ontem", None),
+    (17, None),
+])
+def test_hora_com_z_lida_em_todo_python(texto, esperado):
+    """The real files end in "Z", which fromisoformat reads only from Python 3.11."""
+    assert tr._ts(texto) == esperado
+
+
+def test_hora_ilegivel_muda_formato_mesmo_fora_da_janela(pasta):
+    sessao(pasta, "s1").humano("2026-11-10T10:00")
+    sessao(pasta, "s2").bruto({"type": "user", "timestamp": "ontem", "uuid": "x",
+                               "message": {"role": "user", "content": "oi"}})
+    r = le(pasta)
+    assert [s.id for s in r.sessoes] == ["s1"]  # s2 has no entry in the window
+    assert r.regua["formato_mudou"] is True
+    assert any("hora(s) ilegível(is) em s2.jsonl" in a for a in r.regua["avisos"])
+    sessao(pasta, "s3").humano("2026-11-10T11:00")
+    (pasta / "s2.jsonl").unlink()
+    assert le(pasta).regua["formato_mudou"] is False  # the alarm is that file's, not noise
+
+
 def test_regra_da_pasta_ecoada(pasta):
     assert tr.ler(pasta, tr.para_utc("2026-11-10"), tr.para_utc("2026-11-12"), None, [],
                   "sessao_propria").regua["regra_da_pasta"] == "sessao_propria"

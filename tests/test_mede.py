@@ -246,6 +246,21 @@ def test_nada_existe_sai_2(pasta, tmp_path, monkeypatch):
     assert "não existe" in erro and "Traceback" not in erro
 
 
+def test_python_antigo_sai_2_com_a_versao(pasta):
+    """Older than 3.9 (simulated: sys.version_info set before the script runs) is exit 2 with
+    one sentence naming 3.9, nothing on stdout, never an empty answer."""
+    fixture(pasta)
+    codigo = ("import runpy, sys; sys.version_info = (3, 8, 18); "
+              f"sys.argv = ['mede.py', 'execucoes', '--abre', {ROTINA!r}, "
+              "'--de', '2026-11-10', '--ate', '2026-11-12', '--sem-sessao-propria']; "
+              f"runpy.run_path({str(MEDE)!r}, run_name='__main__')")
+    r = subprocess.run([sys.executable, "-B", "-c", codigo], capture_output=True,
+                       env=dict(os.environ), timeout=60)
+    erro = r.stderr.decode("utf-8")
+    assert r.returncode == 2 and r.stdout == b""
+    assert erro.count("\n") == 1 and "3.9" in erro and "3.8" in erro
+
+
 def test_pasta_dada_tem_regra_pasta(pasta, tmp_path):
     fixture(pasta)
     r = roda("--pasta", str(pasta), "--abre", ROTINA, *JANELA, "--sem-sessao-propria")

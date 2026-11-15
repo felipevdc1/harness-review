@@ -15,13 +15,15 @@ Guarantees:
 1. Exit 0: one JSON object on stdout (UTF-8, ``ensure_ascii=False``, sorted keys), even when
    the ruler carries ``avisos`` or ``formato_mudou``.
 2. Exit 2: bad arguments (a missing own-session form, a bad date, a bad pattern, an unknown
-   ``--fuso``) or a missing folder, with one plain Portuguese sentence on stderr and nothing on stdout; never a
-   traceback, never a partial answer.
+   ``--fuso``) or a missing folder, with one plain Portuguese sentence on stderr and nothing
+   on stdout; never a traceback, never a partial answer.
 3. Reads only; imports only the standard library and the two sibling modules.
 4. ``--fuso`` is applied (``transcritos.define_fuso``) before any date is parsed; without it,
    local times follow the machine's own rules. Without ``--pasta`` the folder comes from
    ``transcritos.pasta_padrao`` with the own-session id, and the ruler's ``regra_da_pasta``
    says which rule picked it.
+5. On a Python older than 3.9 it exits 2 with one sentence naming the version needed, before
+   reading anything, never an empty answer.
 """
 
 from __future__ import annotations
@@ -31,6 +33,12 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+MINIMO = (3, 9)
+if sys.version_info < MINIMO:  # before the siblings: they need zoneinfo (3.9)
+    print(f"o leitor precisa de Python {MINIMO[0]}.{MINIMO[1]} ou mais novo "
+          f"(este é {sys.version_info[0]}.{sys.version_info[1]}).", file=sys.stderr)
+    sys.exit(2)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
