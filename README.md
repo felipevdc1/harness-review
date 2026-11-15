@@ -5,7 +5,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg" />
-    <img src="assets/hero-light.svg" alt="A review of a daily routine: each step is marked AI, person or code, today and after the review. Sorting items by priority moves from AI to code." width="640" />
+    <img src="assets/hero-light.svg" alt="An animated review of a daily routine: each step is marked AI, person or code, today and after the review. After measuring past runs, sorting items by priority moves from AI to code. Illustrative numbers." width="100%" />
   </picture>
 </p>
 
@@ -125,7 +125,7 @@ If the variable names a file that does not exist, the skill says so in one line 
 | You'll need | Version |
 |---|---|
 | Claude Code | With plugin support (`/plugin`) |
-| Python | 3.10+, standard library only |
+| Python | 3.9+, standard library only (the stock macOS `python3` works) |
 | Operating system | macOS and Linux, tested |
 | Windows | Expected to work (call `python` instead of `python3`), not tested |
 | pytest | Only to run the tests |

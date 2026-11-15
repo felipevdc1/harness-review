@@ -4,7 +4,7 @@ name = "harness-review"
 version = "1.0.0"
 description = "Tests for the harness-review Claude Code plugin."
 license = "Apache-2.0"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 dependencies = []
 
 [dependency-groups]

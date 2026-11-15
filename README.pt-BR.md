@@ -5,7 +5,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg" />
-    <img src="assets/hero-light.svg" alt="A revisão de uma rotina diária: cada passo marcado como IA, pessoa ou código, hoje e depois da revisão. Ordenar os itens por prioridade passa da IA para o código." width="640" />
+    <img src="assets/hero-light.svg" alt="Animação da revisão de uma rotina diária: cada passo marcado como IA, pessoa ou código, hoje e depois da revisão. Depois de medir as execuções passadas, ordenar os itens por prioridade passa da IA para o código. Números ilustrativos." width="100%" />
   </picture>
 </p>
 
@@ -125,7 +125,7 @@ Se a variável apontar para um arquivo que não existe, a skill avisa em uma lin
 | Você vai precisar de | Versão |
 |---|---|
 | Claude Code | Com suporte a plugins (`/plugin`) |
-| Python | 3.10+, só biblioteca padrão |
+| Python | 3.9+, só biblioteca padrão (o `python3` que vem no macOS serve) |
 | Sistema operacional | macOS e Linux, testados |
 | Windows | Deve funcionar (chame `python` em vez de `python3`), não testado |
 | pytest | Só para rodar os testes |
