@@ -1,0 +1,7 @@
+[
+  {"id": 1, "priority": 2, "from": "billing", "subject": "Invoice 1042 is due on Friday"},
+  {"id": 2, "priority": 1, "from": "ops", "subject": "Backup job failed last night"},
+  {"id": 3, "priority": 3, "from": "newsletter", "subject": "Ten tips for tidy desks"},
+  {"id": 4, "priority": 1, "from": "support", "subject": "Customer cannot log in since the update"},
+  {"id": 5, "priority": 2, "from": "team", "subject": "Planning meeting moved to 3 pm"}
+]
