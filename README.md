@@ -4,6 +4,8 @@
 
 <p align="center">
   <picture>
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/hero-narrow-dark.svg" />
+    <source media="(max-width: 600px)" srcset="assets/hero-narrow-light.svg" />
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg" />
     <img src="assets/hero-light.svg" alt="An animated review of a daily routine: each step is marked AI, person or code, today and after the review. After measuring past runs, sorting items by priority moves from AI to code. Illustrative numbers." width="100%" />
   </picture>
@@ -16,16 +18,16 @@
 <p align="center">A <strong>Claude Code</strong> skill that reviews a routine, a skill or a project step by step and says, for each step, whether the AI, a person or code should do it, with what each change saves and what it loses. Every number comes from your own past runs, read from your local transcripts. It reads only and writes one report.</p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-0a6e5c?labelColor=1f2328" alt="Apache-2.0 license" /></a>
-  <img src="https://img.shields.io/badge/Claude%20Code-plugin-0a6e5c?labelColor=1f2328" alt="Works as a Claude Code plugin" />
-  <img src="https://img.shields.io/badge/Claude%20Code-skill-0a6e5c?labelColor=1f2328" alt="Works as a Claude Code skill" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-2340d0?labelColor=15172b" alt="Apache-2.0 license" /></a>
+  <img src="https://img.shields.io/badge/Claude%20Code-plugin-a3166f?labelColor=15172b" alt="Works as a Claude Code plugin" />
+  <img src="https://img.shields.io/badge/Claude%20Code-skill-6f5410?labelColor=15172b" alt="Works as a Claude Code skill" />
 </p>
 
-<p align="center"><a href="#install"><strong>Install with one request</strong></a> · <a href="#how-it-works">How it works</a> · <a href="#first-run">First run</a> · <a href="#never">What it never does</a> · <a href="#local-rules">Local rules</a> · <a href="#requirements">Requirements</a></p>
+<p align="center"><a href="#install"><strong>Install</strong></a> · <a href="#how-it-works">How it works</a> · <a href="#first-run">First run</a> · <a href="#never">What it never does</a> · <a href="#local-rules">Local rules</a> · <a href="#requirements">Requirements</a></p>
 
 <a id="install"></a>
 
-## Install with one request
+## Install
 
 Open **Claude Code** in any folder and paste this request.
 It adds this repository as a plugin marketplace, installs the plugin from it, and tells you when to restart.
@@ -34,10 +36,17 @@ It adds this repository as a plugin marketplace, installs the plugin from it, an
 Install the harness-review plugin from https://github.com/felipevdc1/harness-review. Run /plugin marketplace add felipevdc1/harness-review and then /plugin install harness-review@harness-review. If the marketplace is already added, run /plugin marketplace update harness-review first. Confirm the plugin is listed as enabled and tell me when to restart Claude Code.
 ```
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/install-dark.svg" />
+    <img src="assets/install-light.svg" alt="In Claude Code: paste the install request, the plugin marketplace is added, the plugin is installed, then restart and ask for a review." width="100%" />
+  </picture>
+</p>
+
 When it finishes, restart Claude Code and call **`/harness-review:harness-review`**, or just ask "review &lt;my routine&gt; for what should be code".
 
 <details>
-<summary><strong>Prefer the terminal?</strong></summary>
+<summary><strong>Install from the terminal</strong></summary>
 
 ```sh
 claude plugin marketplace add felipevdc1/harness-review
@@ -67,6 +76,8 @@ Keep only one of the two installs, or you will see the skill twice.
 
 <p align="center">
   <picture>
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/how-it-works-narrow-dark.svg" />
+    <source media="(max-width: 600px)" srcset="assets/how-it-works-narrow-light.svg" />
     <source media="(prefers-color-scheme: dark)" srcset="assets/how-it-works-dark.svg" />
     <img src="assets/how-it-works-light.svg" alt="Four steps: name a target, the skill reads the method, measures past runs from your local transcripts, and writes one report." width="100%" />
   </picture>
@@ -93,6 +104,13 @@ Open Claude Code in the cloned repository and ask:
 ```
 
 The report should flag the priority sort as work for code: a fixed-field decision the AI is redoing every morning.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark.svg" />
+    <img src="assets/report-light.svg" alt="An excerpt of a report table with illustrative numbers: step, today, should be, evidence, saves or loses. Sorting by priority should be code, with the same field in 7 of 7 runs." width="100%" />
+  </picture>
+</p>
 
 <a id="never"></a>
 
@@ -122,7 +140,7 @@ If the variable names a file that does not exist, the skill says so in one line 
 
 ## Requirements
 
-| You'll need | Version |
+| Requirement | What works |
 |---|---|
 | Claude Code | With plugin support (`/plugin`) |
 | Python | 3.9+, standard library only (the stock macOS `python3` works) |
@@ -151,7 +169,5 @@ The public sources the method's rules rest on are listed in [METHOD.md](skills/h
 ## License
 
 [Apache-2.0](LICENSE). See [NOTICE](NOTICE) for attribution.
-
-<p align="center"><a href="#top">Back to top ↑</a></p>
 
 Made by Felipe Carneiro: GitHub [felipevdc1](https://github.com/felipevdc1) · Instagram [@o.felipecarneiro](https://instagram.com/o.felipecarneiro).
