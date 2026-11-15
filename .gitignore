@@ -11,3 +11,7 @@ harness-reviews/
 __pycache__/
 .pytest_cache/
 .venv/
+.planning/
+STATE.md
+CLAUDE.md
+AGENTS.md
