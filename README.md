@@ -4,10 +4,10 @@
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/hero-narrow-dark.svg" />
-    <source media="(max-width: 600px)" srcset="assets/hero-narrow-light.svg" />
-    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg" />
-    <img src="assets/hero-light.svg" alt="An animated review of a daily routine: each step is marked AI, person or code, today and after the review. After measuring past runs, sorting items by priority moves from AI to code. Illustrative numbers." width="100%" />
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/en/hero-narrow-dark.svg" />
+    <source media="(max-width: 600px)" srcset="assets/en/hero-narrow-light.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/en/hero-dark.svg" />
+    <img src="assets/en/hero-light.svg" alt="An animated review of a daily routine: each step is marked AI, person or code, today and after the review. After measuring past runs, sorting items by priority moves from AI to code. Illustrative numbers." width="100%" />
   </picture>
 </p>
 
@@ -38,8 +38,8 @@ Install the harness-review plugin from https://github.com/felipevdc1/harness-rev
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/install-dark.svg" />
-    <img src="assets/install-light.svg" alt="In Claude Code: paste the install request, the plugin marketplace is added, the plugin is installed, then restart and ask for a review." width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/en/install-dark.svg" />
+    <img src="assets/en/install-light.svg" alt="In Claude Code: paste the install request, the plugin marketplace is added, the plugin is installed, then restart and ask for a review." width="100%" />
   </picture>
 </p>
 
@@ -76,10 +76,10 @@ Keep only one of the two installs, or you will see the skill twice.
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/how-it-works-narrow-dark.svg" />
-    <source media="(max-width: 600px)" srcset="assets/how-it-works-narrow-light.svg" />
-    <source media="(prefers-color-scheme: dark)" srcset="assets/how-it-works-dark.svg" />
-    <img src="assets/how-it-works-light.svg" alt="Four steps: name a target, the skill reads the method, measures past runs from your local transcripts, and writes one report." width="100%" />
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/en/how-it-works-narrow-dark.svg" />
+    <source media="(max-width: 600px)" srcset="assets/en/how-it-works-narrow-light.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/en/how-it-works-dark.svg" />
+    <img src="assets/en/how-it-works-light.svg" alt="Four steps: name a target, the skill reads the method, measures past runs from your local transcripts, and writes one report." width="100%" />
   </picture>
 </p>
 
@@ -107,8 +107,8 @@ The report should flag the priority sort as work for code: a fixed-field decisio
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark.svg" />
-    <img src="assets/report-light.svg" alt="An excerpt of a report table with illustrative numbers: step, today, should be, evidence, saves or loses. Sorting by priority should be code, with the same field in 7 of 7 runs." width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/en/report-dark.svg" />
+    <img src="assets/en/report-light.svg" alt="An excerpt of a report table with illustrative numbers: step, today, should be, evidence, saves or loses. Sorting by priority should be code, with the same field in 7 of 7 runs." width="100%" />
   </picture>
 </p>
 

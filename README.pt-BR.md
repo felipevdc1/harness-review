@@ -4,10 +4,10 @@
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/hero-narrow-dark.svg" />
-    <source media="(max-width: 600px)" srcset="assets/hero-narrow-light.svg" />
-    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg" />
-    <img src="assets/hero-light.svg" alt="Animação da revisão de uma rotina diária: cada passo marcado como IA, pessoa ou código, hoje e depois da revisão. Depois de medir as execuções passadas, ordenar os itens por prioridade passa da IA para o código. Números ilustrativos." width="100%" />
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/pt-BR/hero-narrow-dark.svg" />
+    <source media="(max-width: 600px)" srcset="assets/pt-BR/hero-narrow-light.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/pt-BR/hero-dark.svg" />
+    <img src="assets/pt-BR/hero-light.svg" alt="Animação da revisão de uma rotina diária: cada passo marcado como IA, pessoa ou código, hoje e depois da revisão. Depois de medir as execuções passadas, ordenar os itens por prioridade passa da IA para o código. Números ilustrativos." width="100%" />
   </picture>
 </p>
 
@@ -38,8 +38,8 @@ Instale o plugin harness-review de https://github.com/felipevdc1/harness-review.
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/install-dark.svg" />
-    <img src="assets/install-light.svg" alt="No Claude Code: você cola o pedido de instalação, o marketplace de plugins é adicionado, o plugin é instalado, e aí é reiniciar e pedir uma revisão." width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/pt-BR/install-dark.svg" />
+    <img src="assets/pt-BR/install-light.svg" alt="No Claude Code: você cola o pedido de instalação, o marketplace de plugins é adicionado, o plugin é instalado, e aí é reiniciar e pedir uma revisão." width="100%" />
   </picture>
 </p>
 
@@ -76,10 +76,10 @@ Fique com só uma das duas instalações, senão a skill aparece duas vezes.
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/how-it-works-narrow-dark.svg" />
-    <source media="(max-width: 600px)" srcset="assets/how-it-works-narrow-light.svg" />
-    <source media="(prefers-color-scheme: dark)" srcset="assets/how-it-works-dark.svg" />
-    <img src="assets/how-it-works-light.svg" alt="Quatro passos: você nomeia um alvo, a skill lê o método, mede as execuções passadas nas transcrições locais e escreve um relatório." width="100%" />
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/pt-BR/how-it-works-narrow-dark.svg" />
+    <source media="(max-width: 600px)" srcset="assets/pt-BR/how-it-works-narrow-light.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/pt-BR/how-it-works-dark.svg" />
+    <img src="assets/pt-BR/how-it-works-light.svg" alt="Quatro passos: você nomeia um alvo, a skill lê o método, mede as execuções passadas nas transcrições locais e escreve um relatório." width="100%" />
   </picture>
 </p>
 
@@ -107,8 +107,8 @@ O relatório deve apontar a ordenação por prioridade como trabalho de código:
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark.svg" />
-    <img src="assets/report-light.svg" alt="Trecho da tabela de um relatório, com números ilustrativos: passo, hoje, deveria ser, evidência, ganha ou perde. Ordenar por prioridade deveria ser código, com o mesmo campo em 7 de 7 execuções." width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/pt-BR/report-dark.svg" />
+    <img src="assets/pt-BR/report-light.svg" alt="Trecho da tabela de um relatório, com números ilustrativos: passo, hoje, deveria ser, evidência, ganha ou perde. Ordenar por prioridade deveria ser código, com o mesmo campo em 7 de 7 execuções." width="100%" />
   </picture>
 </p>
 

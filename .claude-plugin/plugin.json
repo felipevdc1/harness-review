@@ -1,6 +1,6 @@
 {
   "name": "harness-review",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Review a routine, skill or project and find, step by step, what the AI does that code or a person should do (and the other way round), measured from your local Claude Code transcripts. Reads only; writes one report.",
   "author": {
     "name": "Felipe Vieira Domingues Carneiro"
