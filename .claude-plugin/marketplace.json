@@ -1,0 +1,13 @@
+{
+  "name": "harness-review",
+  "owner": {
+    "name": "Felipe Vieira Domingues Carneiro"
+  },
+  "plugins": [
+    {
+      "name": "harness-review",
+      "source": "./",
+      "description": "Find what your AI does that code should do, measured from your own transcripts. Reads only; writes one report."
+    }
+  ]
+}

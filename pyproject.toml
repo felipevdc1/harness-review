@@ -1,0 +1,17 @@
+# Only for running the tests. The skill and its reader use the Python standard library alone.
+[project]
+name = "harness-review"
+version = "1.0.0"
+description = "Tests for the harness-review Claude Code plugin."
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "tzdata; sys_platform == 'win32'",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

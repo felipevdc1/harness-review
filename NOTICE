@@ -1,0 +1,11 @@
+harness-review
+Copyright 2026 Felipe Vieira Domingues Carneiro
+
+This product includes rules re-implemented from Anthropic's session-report plugin,
+analyze-sessions.mjs (Copyright Anthropic, licensed under the Apache License 2.0,
+https://github.com/anthropics/claude-plugins-official/tree/main/plugins/session-report):
+the model-call key (requestId, else a real msg_0... id, else file and uuid), keeping the
+usage with the largest output per key, the sub-agent type from the file name, and reading
+files in first-timestamp order.
+Changed: re-implemented in Python and extended (see skills/harness-review/reader/README.md,
+the reader's guarantees).
