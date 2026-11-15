@@ -32,6 +32,7 @@ That command is the user's act: it is how a review tells a digest that was used 
 - `../transcripts/-example/` — seven synthetic mornings (2026-11-01 to 2026-11-07, UTC) of this routine in the shape Claude Code records sessions: seven main files and one sub-agent file (on 11-03 the routine hands two long items to a helper).
   The user publishes on 11-02, 11-04 and 11-06, answers without publishing on 11-05, and never comes back on the other three days.
   Every usage number is made up.
+  The days are in UTC; pass `--fuso UTC`.
 
 The transcripts are written by `../make_transcripts.py`, which gives the same bytes on every run:
 

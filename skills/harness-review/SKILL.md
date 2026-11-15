@@ -60,10 +60,15 @@ python3 -B "${CLAUDE_SKILL_DIR}/reader/mede.py" execucoes --de YYYY-MM-DD[THH:MM
 ```
 
 The window's dates (`--de`, `--ate`) and `--desde` are read in the machine's local time.
-Pass `--fuso <IANA zone>` (for example `--fuso Europe/Lisbon`) only when the user names a timezone; then all three are read in that zone, and the start time is taken in it too.
+Pass `--fuso <IANA zone>` (for example `--fuso Europe/Lisbon`) when the user names a timezone, or when the target's own docs state the zone its dates use (for example "the days are in UTC" → `--fuso UTC`); then all three are read in that zone, and the start time is taken in it too.
+Otherwise leave it out and the window is read in local time; either way, the report says which zone the window was read in.
 `--pasta <dir>` is only for a folder other than the default; the default is this project's transcripts folder (the one holding this session's file).
 Give `--ate` as a date alone (`--ate 2026-11-07`): that means the end of that day; a time of day there stops at that minute's start, so 23:59 would lose the day's last seconds.
 It prints one JSON object: `execucoes` (the runs), `totais` (n, median, min, max), `regua` (the ruler: source, window, measured-at, timezone, which rule picked the folder, what was excluded, `padroes_casados`, `formato_mudou`, `avisos`).
+The answer is one long JSON line: pretty-printing it or picking fields out of it (`python3 -m json.tool`, `jq`, `grep`) is reading, and is allowed.
+Computing a new number from it (summing, averaging, a ratio) is not: a number the reader does not give is written as "not measured".
+The reader gives no per-run total: a run's row shows the reader's own per-run fields under their exact key names (for example `contexto` and `escritos` as two columns), never a column summed by hand.
+Only `totais` combines them (`totais.numero` names the number, `contexto + escritos`): the window-level line quotes its `mediana`, `min` and `max` as given.
 Exit 2 means the arguments are wrong: read the message, fix the call, run it again; never write a script around it.
 
 **Known opener shapes** (check a pattern against these before trusting it):
@@ -71,6 +76,8 @@ Exit 2 means the arguments are wrong: read the message, fix the call, run it aga
 - A teammate's first prompt is wrapped in `<teammate-message`, so an anchored `^…` on the inner text misses it: match unanchored, or include the wrapper.
 - A scheduled or queued prompt usually opens with one fixed line (for example `[routine] build the daily digest`): anchor on that line, `--abre 'texto:^\[routine\] build the daily digest'`.
 - A reply sent through a channel plugin starts `<channel source="plugin:<name>`, so `--resposta '^<channel source="plugin:<name>'`.
+- When any later message from the person counts as a reply, pass `--resposta '.'` (any message line).
+  The reader itself leaves out the run's own opening, system notices and a sub-agent's first prompt, so `.` matches only the messages that came after.
 - A local rules file may add shapes of its own setup.
 
 ### Step 0 — the state of now
@@ -144,6 +151,7 @@ Sections, in this order (headings in the user's language):
 
 1. **How I measured** — every ruler in plain words and every exact command run.
 2. **The table** — today · decision · what it saves (with the ruler) · what is lost · the test that must fail; a "keep" row shows only the deciding answer, in one word, and the other answers go in a section apart.
+   Every step decided "code" or "hybrid" carries, on its own row or item, METHOD's three pieces (the code for the common case; the fallback for the rest; the check that stops and warns, by another path, when the code no longer fits) and the test that must fail today; a row missing any of the four is not finished.
 3. **The list** — ordered as METHOD's "Output" says.
 4. **Not measured** — the growth-rule lines, one per line.
 5. **Where the method failed or was ambiguous** — always present, even when short; it feeds the method's stop rule.

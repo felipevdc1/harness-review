@@ -91,7 +91,7 @@ An empty folder is a valid answer with no runs.
 - Top level: `execucoes`, `totais`, `regua`.
 - `execucoes`: one entry per run, in time order: `sessao`, `agente` (null in a main file), `inicio`, `fim` (local time, or `--fuso`), `sinais`, `estreito`, `largo`, `acordar`, `ajudantes`, `comandos`, `respondido`, `minutos_ate_resposta`, `agido`, `minutos_ate_acao`, `uso_indefinido`.
 - Every cost block carries `entrada` (`input_tokens`), `gravados` (`cache_creation_input_tokens`), `relidos` (`cache_read_input_tokens`), `escritos` (`output_tokens`), `contexto` (entrada + gravados + relidos) and `chamadas`.
-- `estreito` is the narrow cost (the opening call and each closing match's call, each with its next call); `largo` is the wide cost (every call of the run plus the sub-agents it launched, nested ones included); `acordar` is the wake cost (the first call of the run's file).
+- `estreito` is the narrow cost (the opening's call, for a message the first call after it, plus each closing match's call and the call after that one); `largo` is the wide cost (every call of the run plus the sub-agents it launched, nested ones included); `acordar` is the wake cost (the first call of the run's file).
   In an always-on session every run carries the same `acordar`, the session's one wake; quote `totais.acordar` (once per file) as the wake cost, never a run's own value.
 - `ajudantes`: the run's sub-agents per resolved type, with `quantos`, `chamadas`, the usage split, `modelos` and their own `acordar`, kept apart from the main one.
 - `comandos`: the run's Bash calls counted `por_desfecho` (`ok`, `erro`, `saida_N`, `negado_por_gancho`, `interrompido`, `sem_resultado`) and `mais_de_uma_tentativa` (the same command failed, then ended `ok` or `saida_0` inside the run).
